@@ -2,11 +2,18 @@
 mk='Makefile'
 name=$1
 cflag=''
+
+if [ $name == "help" ]
+then
+	echo "./make.sh {name of executable} {path to cpp files} {build-in system libraries}"
+	exit 1
+fi
+	
+
 if [ ! $# -ge 2 ]
 then
 	echo "Invalid arguments count"
 else
-	
 	if [ $# -gt 2 ]
 	then
 		cflag=`./makehelp.py $@`
